@@ -1,0 +1,28 @@
+{
+  "name": "j_j_peer_auth0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinoc03/peerFullStackwithAuth-J-J-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinoc03/peerFullStackwithAuth-J-J-/issues"
+  },
+  "homepage": "https://github.com/justinoc03/peerFullStackwithAuth-J-J-#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.1"
+  }
+}
