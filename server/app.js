@@ -8,6 +8,12 @@ var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 app.use(bodyParser.json);
 
+// require shelfModelfor mongodb
+var shelfModel = require('../models/shelfModel.js')
+
+// connect to the db with db name = shelf
+mongoose.connect('mongodb://localhost:27017/shelf');
+
 // spin up server
 app.listen(port, function(){
   console.log('listening on port:', port);
