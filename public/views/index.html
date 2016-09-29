@@ -46,7 +46,7 @@
         <div class="col-xs-4 itemOnShelf">
           <p>{{thing.description}} placed by {{thing.owner}}</p>
           <img class="itemImage" ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/></p>
-          <p><button class="btn btn-warning" ng-click="removeThing(thing._id)">Remove from shelf</button></p>
+          <p><button class="btn btn-warning" ng-click="removeThing(thing._id)" ng-if="thing.userId === userProfile.user_id">Remove from shelf</button></p>
         </div>
       </div>
     </div>
