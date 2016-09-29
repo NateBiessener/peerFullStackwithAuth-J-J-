@@ -6,6 +6,7 @@ var thingsSchema = new Schema({
   description: {type: String, required: true},
   owner: {type: String, required: true},
   img_url: {type: String, required: false},
+  userId: String,
   datePlaced: {type: Date, default: Date.now}
 });
 

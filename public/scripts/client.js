@@ -73,6 +73,7 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', functi
     var thing = {
       description: $scope.descriptionIn,
       owner: $scope.userProfile.name,
+      userId: $scope.userProfile.user_id,
       imageUrl: $scope.imageIn
     };
     ShelfFactory.addToShelf(thing).then(fillShelf);

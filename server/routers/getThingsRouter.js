@@ -27,6 +27,7 @@ router.post('/getThings', function(req,res){
   var newItem = new shelfModel({
     description: req.body.description,
     owner: req.body.owner,
+    userId: req.body.userId,
     img_url: req.body.img_url
   });
 
