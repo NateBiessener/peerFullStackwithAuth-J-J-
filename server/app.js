@@ -26,8 +26,11 @@ app.get('/', function(req, res){
   res.sendFile(path.resolve('public/views/index.html'));
 });
 
-var getThingsRouter = require('./routers/getThingsRouter')
+var getThingsRouter = require('./routers/getThingsRouter');
 app.use('/shelf', getThingsRouter);
+
+var userRouter = require('./routers/userRouter');
+app.use('/users', userRouter);
 
 // app.get('/test', function(req, res) {
 //   console.log('in test');
