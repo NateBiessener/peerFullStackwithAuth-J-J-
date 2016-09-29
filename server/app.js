@@ -59,7 +59,20 @@ app.post('/getThings', function(req,res){
       res.sendStatus(201);
     }
   })
-  
+});
+
+app.delete('/getThings', function(req, res){
+  console.log('in getThings delete');
+  shelfModel.findByIdAndRemove(req.query.id, function(err, result){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else {
+      console.log('item deleted');
+      res.send(result);
+    }
+  });
 });
 
 
