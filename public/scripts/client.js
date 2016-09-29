@@ -78,7 +78,9 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', functi
     ShelfFactory.addToShelf(thing).then(fillShelf);
   };
 
-
+  $scope.removeThing = function(id){
+    ShelfFactory.removeFromShelf(id).then(fillShelf);
+  }
 
 }]);
 
