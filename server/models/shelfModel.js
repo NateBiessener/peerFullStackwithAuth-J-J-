@@ -3,10 +3,10 @@ var Schema = mongoose.Schema;
 
 // building object literal for adding "things" to db
 var thingsSchema = new Schema({
-  object_name: String,
-  description: String,
-  owner: String,
-  img_url: String
+  description: {type: String, required: true},
+  owner: {type: String, required: true},
+  img_url: {type: String, required: false},
+  datePlaced: {type: Date, default: Date.now}
 });
 
 var shelfModel = mongoose.model('things', thingsSchema);
