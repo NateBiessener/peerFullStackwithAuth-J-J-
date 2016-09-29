@@ -26,55 +26,8 @@ app.get('/', function(req, res){
   res.sendFile(path.resolve('public/views/index.html'));
 });
 
-////////////////////////////// get all thigns////////////
-// show all things
-app.get('/getThings', function(req, res){
-  console.log('in getThings get');
-  shelfModel.find({}, function(err, thingsResults){
-    if(err){
-      console.log('error occured:', err);
-      res.sendStatus(500);
-    }else{
-      console.log('thingsResults:', thingsResults);
-      res.send(thingsResults);
-    }
-  });
-});
-
-app.post('/getThings', function(req,res){
-  console.log('in getThings post');
-  var newItem = new shelfModel({
-    description: req.body.description,
-    owner: req.body.owner,
-    img_url: req.body.img_url
-  });
-
-  newItem.save(function(err){
-    if (err) {
-      console.log('save error:', err);
-      res.sendStatus(500);
-    }
-    else {
-      console.log('saved');
-      res.sendStatus(201);
-    }
-  })
-});
-
-app.delete('/getThings', function(req, res){
-  console.log('in getThings delete');
-  shelfModel.findByIdAndRemove(req.query.id, function(err, result){
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    }
-    else {
-      console.log('item deleted');
-      res.send(result);
-    }
-  });
-});
-
+var getThingsRouter = require('./routers/getThingsRouter')
+app.use('/shelf', getThingsRouter);
 
 // app.get('/test', function(req, res) {
 //   console.log('in test');
