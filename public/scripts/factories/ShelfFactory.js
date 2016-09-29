@@ -6,7 +6,7 @@ myApp.factory('ShelfFactory', ['$http', function($http){
   var fillShelf = function(){
     return $http({
       method: 'GET',
-      url: '/shelf/items'
+      url: '/shelf/getThings'
     }).then(function(results){
       console.log('filling shelf');
       shelfItems = results.data;
@@ -18,7 +18,7 @@ myApp.factory('ShelfFactory', ['$http', function($http){
   var addToShelf = function(objectToSend){
     return $http({
       method: 'POST',
-      url: '/shelf/items',
+      url: '/shelf/getThings',
       data: objectToSend
     }).then(function(results){
       console.log('saved');
