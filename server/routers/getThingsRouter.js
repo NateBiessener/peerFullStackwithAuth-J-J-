@@ -28,7 +28,7 @@ router.post('/getThings', function(req,res){
     description: req.body.description,
     owner: req.body.owner,
     userId: req.body.userId,
-    img_url: req.body.img_url
+    imageUrl: req.body.imageUrl
   });
 
   newItem.save(function(err){

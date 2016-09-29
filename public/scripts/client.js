@@ -111,7 +111,11 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', 'UserF
 
   $scope.removeThing = function(id){
     ShelfFactory.removeFromShelf(id).then(fillShelf);
-  }
+  };
+
+  $scope.filterByUser = function(userId){
+    console.log('in filterByUser', userId);
+  };
 
 }]);
 

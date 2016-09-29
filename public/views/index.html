@@ -28,7 +28,7 @@
       <div ng-show="loggedIn">
         Shelf Users:
           <div ng-repeat="user in users">
-            {{user.userName}}
+            <p ng-click="filterByUser(user.userId)">{{user.userName}}</p>
           </div>
       </div>
 
