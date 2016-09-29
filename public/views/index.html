@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
-    <script src="../vendors/angular.min.js" charset="utf-8"></script>
-    <script src="../scripts/client.js" charset="utf-8"></script>
-    <script src="scripts/factories/ShelfFactory.js" charset="utf-8"></script>
-    <script src="scripts/factories/UserFactory.js" charset="utf-8"></script>
-    <title>Peer Full Stack</title>
-  </head>
-  <body ng-app="myApp">
-    <div ng-controller="displayController">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
+  <script src="../vendors/angular.min.js" charset="utf-8"></script>
+  <script src="../scripts/client.js" charset="utf-8"></script>
+  <script src="scripts/factories/ShelfFactory.js" charset="utf-8"></script>
+  <script src="scripts/factories/UserFactory.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css"/>
+  <title>Peer Full Stack</title>
+</head>
+<body ng-app="myApp">
+  <div class="container" ng-controller="displayController">
 
+
+    <div class="container" id="logButtonDiv">
+      <p>Welcome to the Prime Digital Academy: Room 2</p>
+      <p>Pi Shelf</p>
       <div ng-hide="loggedIn">
         <button ng-click='logIn()'>Log In</button>
       </div>
       <div ng-show="loggedIn">
         <button ng-click='logOut()'>Log Out</button>
       </div>
-
-      <div ng-show="loggedIn">
-        <input type="text" placeholder="Item" ng-model="descriptionIn">
-        <input type="text" placeholder="Image URL" ng-model="imageIn">
-        <button type="button"ng-click="putThingOnShelf()">Put on shelf</button>
-      </div>
-
-      <div ng-show="loggedIn">
-        Shelf Users:
-          <div ng-repeat="user in users">
-            <p ng-click="filterByUser(user.userId)">{{user.userName}}</p>
-          </div>
-      </div>
-
-      <div ng-repeat="thing in shelf">
-        <p>{{thing.description}} placed by {{thing.owner}}<button type="button" ng-click="removeThing(thing._id)" ng-if="thing.userId === userProfile.user_id">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
-      </div>
-
-
     </div>
-    Pi Shelf
-  </body>
+
+    <div class="container" ng-show="loggedIn" id="addItemBox">
+      <p>Welcome, {{userProfile.name}}! You may add an item to the shelf here:</p>
+      <input type="text" placeholder="Item" ng-model="descriptionIn">
+      <input type="text" placeholder="Image URL" ng-model="imageIn">
+      <button type="button"ng-click="putThingOnShelf()">Put on shelf</button>
+    </div>
+
+    <div ng-show="loggedIn">
+      Shelf Users:
+      <div ng-repeat="user in users">
+        <p ng-click="filterByUser(user.userId)">{{user.userName}}</p>
+      </div>
+    </div>
+
+    <div class="container" id="piShelf">
+      <div ng-repeat="thing in shelf">
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-4 itemOnShelf">
+          <p>{{thing.description}} placed by {{thing.owner}}</p>
+          <img class="itemImage" ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/></p>
+          <p><button class="btn btn-warning" ng-click="removeThing(thing._id)">Remove from shelf</button></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
 </html>
