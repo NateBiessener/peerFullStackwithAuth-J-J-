@@ -2,6 +2,10 @@ console.log('client.js is sourced, yo');
 
 var myApp = angular.module('myApp', []);
 
+var lock = new Auth0Lock( 'le4glthQI5NgyhNzP99mKZJjzsr1I6QP', 'thatspaceguy.auth0.com');
+// log out url, from Auth0
+var logOutUrl = 'https://thatspaceguy.auth0.com/v2/logout';
+
 myApp.controller('displayController', ['$scope', 'ShelfFactory', function($scope, ShelfFactory){
   $scope.loggedIn = false;
 
