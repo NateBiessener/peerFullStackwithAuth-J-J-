@@ -76,6 +76,8 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', functi
       imageUrl: $scope.imageIn
     };
     ShelfFactory.addToShelf(thing).then(fillShelf);
+    $scope.descriptionIn = '';
+    $scope.imageIn = '';
   };
 
   $scope.removeThing = function(id){
