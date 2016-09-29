@@ -9,3 +9,7 @@
 body {
 	text-align: center;
 }
+
+#addItemBox, #piShelf {
+	margin-top: 30px;
+}
