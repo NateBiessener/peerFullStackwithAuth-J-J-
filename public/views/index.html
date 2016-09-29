@@ -25,7 +25,7 @@
       </div>
 
       <div ng-repeat="thing in shelf">
-        <p>{{thing.description}} placed by {{thing.owner}}<button type="button" ng-click="removeThing(thing._id)">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
+        <p>{{thing.description}} placed by {{thing.owner}}<button type="button" ng-click="removeThing(thing._id)" ng-if="loggedIn">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
       </div>
 
 
