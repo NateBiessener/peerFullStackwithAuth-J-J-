@@ -8,7 +8,7 @@ var logOutUrl = 'https://thatspaceguy.auth0.com/v2/logout';
 
 myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', 'UserFactory', function($scope, $http, ShelfFactory, UserFactory){
   var fillShelf = function(){
-    ShelfFactory.fillShelf().then(
+    return ShelfFactory.fillShelf().then(
       function(){
         console.log(ShelfFactory.shelf());
         $scope.shelf = ShelfFactory.shelf();
@@ -115,6 +115,11 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', 'UserF
 
   $scope.filterByUser = function(userId){
     console.log('in filterByUser', userId);
+    fillShelf().then(function(){
+      $scope.shelf = $scope.shelf.filter(function(index){
+        return index.userId === userId;
+      });
+    });
   };
 
 }]);
