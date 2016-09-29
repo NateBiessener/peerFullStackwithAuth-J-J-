@@ -5,7 +5,7 @@
   <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
   <script src="../vendors/angular.min.js" charset="utf-8"></script>
   <script src="../scripts/client.js" charset="utf-8"></script>
-  <script src="scripts/factories/shelfFactory.js" charset="utf-8"></script>
+  <script src="scripts/factories/ShelfFactory.js" charset="utf-8"></script>
   <link rel="stylesheet" href="vendors/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css"/>
   <title>Peer Full Stack</title>
@@ -32,10 +32,11 @@
     </div>
 
     <div class="container" id="piShelf">
-      <div class="row" ng-repeat="thing in shelf">
-        <div class="itemOnShelf">
+      <div ng-repeat="thing in shelf">
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-4 itemOnShelf">
           <p>{{thing.description}} placed by {{thing.owner}}</p>
-          <p><img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/></p>
+          <<img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/></p>
           <p><button class="btn btn-warning" ng-click="removeThing(thing._id)">Remove from shelf</button></p>
         </div>
       </div>

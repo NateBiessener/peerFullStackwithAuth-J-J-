@@ -8,8 +8,21 @@
 
 body {
 	text-align: center;
+	background-image: url(../assets/Empty-White-Shelves.jpg);
+	background-position: top center;
+	background-size: cover;
 }
 
 #addItemBox, #piShelf {
 	margin-top: 30px;
+}
+
+#piShelf {
+	background-image: url(../assets/SpotlightShelf.jpg);
+	background-size: cover;
+	min-height: 400px;
+}
+
+.itemOnShelf {
+	height: 100px;
 }
