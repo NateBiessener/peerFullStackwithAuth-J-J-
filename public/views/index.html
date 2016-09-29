@@ -25,6 +25,13 @@
         <button type="button"ng-click="putThingOnShelf()">Put on shelf</button>
       </div>
 
+      <div ng-show="loggedIn">
+        Shelf Users:
+          <div ng-repeat="user in users">
+            {{user.userName}}
+          </div>
+      </div>
+
       <div ng-repeat="thing in shelf">
         <p>{{thing.description}} placed by {{thing.owner}}<button type="button" ng-click="removeThing(thing._id)" ng-if="thing.userId === userProfile.user_id">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
       </div>
