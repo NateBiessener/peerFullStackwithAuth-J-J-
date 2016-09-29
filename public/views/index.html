@@ -4,10 +4,31 @@
     <meta charset="utf-8">
     <script src="../vendors/angular.min.js" charset="utf-8"></script>
     <script src="../scripts/client.js" charset="utf-8"></script>
+    <script src="scripts/factories/shelfFactory.js" charset="utf-8"></script>
     <title>Peer Full Stack</title>
   </head>
   <body>
-    <h1>Dat Shelf Doe</h1>
+    <div ng-controller="displayController">
 
+      <div ng-hide="loggedIn">
+        <button ng-click='logIn()'>Log In</button>
+      </div>
+      <div ng-show="loggedIn">
+        <button ng-click='logOut()'>Log Out</button>
+      </div>
+
+      <div ng-show="loggedIn">
+        <input type="text" placeholder="Item" ng-model="descriptionIn">
+        <input type="text" placeholder="Image URL" ng-model="imageIn">
+        <button type="button"ng-click="putThingOnShelf()">Put on shelf</button>
+      </div>
+
+      <div ng-repeat="thing in shelf">
+        <p>{{thing.description}} placed by {{thing.owner}}</p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
+      </div>
+
+
+    </div>
+    Pi Shelf
   </body>
 </html>
